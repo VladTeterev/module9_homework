@@ -52,10 +52,8 @@ function displayResult(apiData) {
 // Вешаем обработчик с условиями проверки на кнопку для запроса
 btnNode.addEventListener("click", () => {
   const value = +document.querySelector(".j-input-request").value;
-  if (value === 5) {
-    useRequest("https://picsum.photos/v2/list?limit=5", displayResult);
-  } else if (value <= 10 && value != 0) {
-    useRequest("https://picsum.photos/v2/list?limit=10", displayResult);
+  if (value <= 10 && value != 0) {
+    useRequest(`https://picsum.photos/v2/list?limit=${value}`, displayResult);
   } else {
     resultNode.innerHTML = `
     <p class="some_text">Число вне диапазона от 1 до 10!</p>
